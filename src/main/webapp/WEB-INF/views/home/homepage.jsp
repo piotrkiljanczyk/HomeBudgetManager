@@ -1,11 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
   User: PKiljanczyk1
-  Date: 06.10.2022
-  Time: 22:11
+  Date: 13.10.2022
+  Time: 20:55
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<html>--%>
+<%--<head>--%>
+<%--    <title>Homepage</title>--%>
+<%--</head>--%>
+<%--<body>--%>
+<%--<h1>List of values</h1>--%>
+<%--<a href="/list-values">Values list</a>--%>
+<%--</body>--%>
+<%--</html>--%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,17 +58,10 @@
     <a href="/list-values">Values</a>
     <a href="/list-owners">Owners</a>
 </div>
-<h1>Delete value</h1>
+
 <div style="padding-left:16px">
-    <div>Do you like do delete '${value.value}'?
-    <form method="post" action="/delete-value">
-        <input type="hidden" name="id" value="${value.id}"/>
-        <button type="submit">Yes</button>
-    </form>
-        <form method="get" action="/list-values">
-            <button type="submit">No</button>
-        </form>
-    </div>
+    <h2><center>Home Budget Manager</center></h2>
 </div>
+
 </body>
 </html>

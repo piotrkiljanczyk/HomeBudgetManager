@@ -18,10 +18,11 @@ public class ValueDao {
     @PersistenceContext
     private EntityManager em;
 
-    public List<Value> findAllByOwner(Owner owner) {
-        return em.createQuery("SELECT b FROM Value b WHERE :owner MEMBER OF b.owners", Value.class)
+    public boolean checkOwnerHasValue (Owner owner) {
+        List<Value> values = em.createQuery("SELECT b FROM Value b WHERE :owner MEMBER OF b.owners", Value.class)
                 .setParameter("owner", owner)
                 .getResultList();
+        return !values.isEmpty();
     }
 
     public List<Value> findAllWithOwners() {
@@ -30,7 +31,7 @@ public class ValueDao {
     }
 
     public List<Value> findAllWithDetails() {
-        return em.createQuery("SELECT b FROM ValueDetails b").getResultList();
+        return em.createQuery("SELECT distinct b FROM Value b LEFT JOIN fetch b.owners").getResultList();
     }
 
     public List<Value> findAllByType(List<String> type) {

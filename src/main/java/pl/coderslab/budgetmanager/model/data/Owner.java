@@ -1,11 +1,11 @@
 package pl.coderslab.budgetmanager.model.data;
 
 
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Setter
@@ -17,21 +17,16 @@ public class Owner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @NotEmpty
+    @NotEmpty(message = "Wartość nie może byc pusta")
     @Column(name = "first_name")
     private String firstName;
 
-    @NotEmpty
     @Column(name = "last_name")
     private String lastName;
 
     @Override
     public String toString() {
-        return "Owner{" +
-                "Id=" + Id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return firstName + " " + lastName;
     }
 
     public String getFullName() {

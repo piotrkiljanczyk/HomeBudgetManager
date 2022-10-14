@@ -1,26 +1,31 @@
 package pl.coderslab.budgetmanager.web.controller;
 
-import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.budgetmanager.model.dao.OwnerDao;
+import pl.coderslab.budgetmanager.model.dao.ValueDao;
 import pl.coderslab.budgetmanager.model.data.Owner;
 
+import javax.validation.Valid;
+
 @Controller
+@Validated
+@RequiredArgsConstructor
 public class OwnerMvcController {
 
     private final OwnerDao ownerDao;
 
-    public OwnerMvcController(OwnerDao ownerDao) {
-        this.ownerDao = ownerDao;
-    }
+    private final ValueDao valueDao;
 
     @GetMapping("/delete-owner")
     public String showDeleteOwner (Long id, Model model) {
         model.addAttribute("owner", ownerDao.findById(id));
+        model.addAttribute("ownerHasValue", valueDao.checkOwnerHasValue(ownerDao.findById(id)));
         return "owners/delete";
     }
 

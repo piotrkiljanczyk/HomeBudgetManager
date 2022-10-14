@@ -1,5 +1,6 @@
 package pl.coderslab.budgetmanager.model.dao;
 
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.budgetmanager.model.data.Owner;
 
@@ -37,5 +38,11 @@ public class OwnerDao {
 
     public Owner findById(Long id) {
         return em.find(Owner.class, id);
+    }
+
+    public Owner findOwnersById (Long id) {
+        Owner owner = em.find(Owner.class, id);
+        Hibernate.initialize(owner.getFirstName());
+        return owner;
     }
 }

@@ -1,18 +1,16 @@
 package pl.coderslab.budgetmanager.web.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.budgetmanager.model.dao.OwnerDao;
 import pl.coderslab.budgetmanager.model.data.Owner;
 
 @RestController
 @RequestMapping("/owners")
+@RequiredArgsConstructor
 public class OwnerController {
 
     private final OwnerDao ownerDao;
-
-    public OwnerController(OwnerDao ownerDao) {
-        this.ownerDao = ownerDao;
-    }
 
     @PostMapping
     public Owner createOwner(@RequestBody Owner owner) {

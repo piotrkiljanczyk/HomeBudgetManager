@@ -1,37 +1,34 @@
 package pl.coderslab.budgetmanager.model.data;
 
 
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
+import javax.validation.constraints.NotEmpty;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "values")
+@Table(name = "finance_values")
 public class Value {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+    
 
-    @NotEmpty
-    @Column(name = "value")
+    @Column(columnDefinition = "integer default 0")
     private Long value;
 
-    @NotEmpty
-    @Column(name = "type")
-    @ElementCollection
-    private List<String> type;
+    @Enumerated(value = EnumType.STRING)
+    private Type type;
 
-    @NotEmpty
     @Column(name = "date")
-    private SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+    private LocalDate date = LocalDate.now();
 
     @NotEmpty
     @ManyToMany
@@ -39,6 +36,9 @@ public class Value {
             joinColumns = @JoinColumn(name = "value_id"),
             inverseJoinColumns = @JoinColumn(name = "owner_id"))
     private List<Owner> owners = new ArrayList<>();
+
+    @Enumerated(value = EnumType.STRING)
+    private Category category;
 
     @Override
     public String toString() {
