@@ -6,16 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Homepage</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<h1>List of values</h1>--%>
-<%--<a href="/list-values">Values list</a>--%>
-<%--</body>--%>
-<%--</html>--%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,6 +52,23 @@
 <div style="padding-left:16px">
     <h2><center>Home Budget Manager</center></h2>
 </div>
+<%--<center>--%>
+<%--<form method="post">--%>
+<%--    <div class="form-outline form-white mb-4">--%>
+<%--        <input type="text" name="username" id="username" class="form-control form-control-lg" />--%>
+<%--        <label class="form-label" for="username">Login</label>--%>
+<%--    </div>--%>
 
+<%--    <div class="form-outline form-white mb-4">--%>
+<%--        <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />--%>
+<%--        <label class="form-label" for="typePasswordX">Password</label>--%>
+<%--    </div>--%>
+
+<%--    <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign in</button>--%>
+
+<%--    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+
+<%--</form>--%>
+<%--</center>--%>
 </body>
 </html>

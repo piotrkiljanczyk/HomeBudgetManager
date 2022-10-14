@@ -37,11 +37,6 @@ public class ValueMvcController {
 
     @ModelAttribute("categories")
     public List<Category> categories() {
-//        return List.of("Codzienne wydatki",
-//                "Dom i rachunki", "Dzieci", "Finanse i ubezpieczenia",
-//                "Firmowe", "Inwestycje", "Okazjonalne wydaki", "Rozrywka i edukacja",
-//                "Samochód i transport", "Wakacje i podróże", "Wypłata gotówki",
-//                "Zdrowie i uroda", "Pozostałe wydatki");
         return Arrays.asList(Category.values());
     }
     @ModelAttribute("types")
