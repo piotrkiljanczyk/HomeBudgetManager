@@ -5,7 +5,7 @@ import org.springframework.core.convert.converter.Converter;
 import pl.coderslab.budgetmanager.model.dao.OwnerDao;
 import pl.coderslab.budgetmanager.model.data.Owner;
 
-public class AuthorConverter implements Converter<String, Owner> {
+public class OwnerConverter implements Converter<String, Owner> {
 
     private OwnerDao ownerDao;
 

@@ -7,9 +7,8 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-import pl.coderslab.budgetmanager.web.converter.AuthorConverter;
+import pl.coderslab.budgetmanager.web.converter.OwnerConverter;
 
-import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 @Configuration
@@ -33,7 +32,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public AuthorConverter authorConverter() {
-        return new AuthorConverter();
+    public OwnerConverter authorConverter() {
+        return new OwnerConverter();
     }
 }
